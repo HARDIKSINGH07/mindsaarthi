@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: mindsaarthi-backend
+    env: python
+    buildCommand: cd apis && pip install -r requirements.txt
+    startCommand: cd apis && gunicorn app:app
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+    healthCheckPath: /
+    plan: free
+
+  - type: web
+    name: mindsaarthi-frontend
+    env: node
+    buildCommand: cd client && npm install && npm run build
+    startCommand: cd client && npm run preview
+    envVars:
+      - key: VITE_API_URL
+        value: https://mindsaarthi-backend.onrender.com
+    healthCheckPath: /
+    plan: free 
