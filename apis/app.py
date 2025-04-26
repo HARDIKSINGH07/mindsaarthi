@@ -21,7 +21,7 @@ app = Flask(__name__)
 # Configure CORS
 CORS(app, resources={
     r"/*": {
-        "origins": ["https://mindsaarthi-frontend.onrender.com", "http://localhost:8080"],
+        "origins": ["https://mindsaarthi-frontend.vercel.app/","https://mindsaarthi-frontend.onrender.com", "http://localhost:8080"],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
